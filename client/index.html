@@ -3,20 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./script.js"></script>
+    <title>Gestor de Canciones</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Recomendador de Canciones</h1>
-    <input type="text" id="nombre" placeholder="Nombre de la canción">
-    <input type="text" id="artista" placeholder="Artista de la canción">
-    <input type="text" id="url" placeholder="URL de la canción">
-    <button id="guardar" onclick="guardarDatos()" >Guardar canción</button>
-    <button id="aleatoria" onclick="obtenerCancionAleatoria()" >Obtener canción aleatoria</button>
-    
-    <div id="cancion-aleatoria"></div>
-    <div id="canciones" class="card-container"></div>
+    <header>
+        <h1>Gestor de Canciones</h1>
+    </header>
 
+    <div class="container">
+      
+        <h2>Guardar Canción</h2>
+        <div class="form-group">
+            <label for="nombre">Nombre de la Canción:</label>
+            <input type="text" id="nombre" placeholder="Nombre de la canción">
+        </div>
+        <div class="form-group">
+            <label for="artista">Artista:</label>
+            <input type="text" id="artista" placeholder="Nombre del artista">
+        </div>
+        <div class="form-group">
+            <label for="url">URL de YouTube:</label>
+            <input type="url" id="url" placeholder="https://www.youtube.com/watch?v=...">
+        </div>
+        <div class="button-group">
+            <button id="guardar" onclick="guardarDatos()">Guardar Canción</button>
+        </div>
+
+        <hr>
+
+        
+        <h2>Lista de Canciones</h2>
+        <div id="canciones"></div>
+
+        <hr>
+
+        <h2>Obtener Canción Aleatoria</h2>
+        <button onclick="obtenerCancionAleatoria()">Obtener Canción</button>
+        <div id="cancion-aleatoria"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

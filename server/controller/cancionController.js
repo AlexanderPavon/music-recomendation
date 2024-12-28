@@ -2,7 +2,7 @@
 let Cancion = require('../models/cancion');
 
 async function agregarCancion (req, res) {
-    console.log('Datos recibidos:', req.body);  // Verifica que los datos lleguen bien
+    console.log('Datos recibidos:', req.body);  
     const { nombre, artista, url_video } = req.body;
 
     if (!nombre || !artista || !url_video) {
@@ -19,15 +19,20 @@ async function agregarCancion (req, res) {
     }
 };
 
-
-
-
+async function obtenerCanciones(req, res) {
+    try {
+        const canciones = await Cancion.find();
+        res.status(200).json(canciones);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener canciones' });
+    }
+}
 
 
 
 async function obtenerCancionAleatoria(req, res) {
     try {
-        const canciones = await Cancions.find();
+        const canciones = await Cancion.find();
         if (canciones.length === 0) {
             return res.status(404).json({ error: 'No hay canciones disponibles' });
         }
@@ -39,7 +44,7 @@ async function obtenerCancionAleatoria(req, res) {
     }
 }
 
-// Votar por una canción
+
 async function votarCancion (req, res) {
     const { id } = req.params;
     try {
@@ -53,9 +58,12 @@ async function votarCancion (req, res) {
     }
 };
 
+
+
 module.exports = {
     agregarCancion,
     obtenerCancionAleatoria,
     votarCancion,
+    obtenerCanciones, 
 };
 
