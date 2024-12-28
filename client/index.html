@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Recomendador de Canciones</h1>
+    <input type="text" id="nombre" placeholder="Nombre de la canción">
+    <input type="text" id="artista" placeholder="Artista de la canción">
+    <input type="text" id="url" placeholder="URL de la canción">
+    <button id="guardar" onclick="guardarDatos()" >Guardar canción</button>
+    <button id="aleatoria" onclick="obtenerCancionAleatoria()" >Obtener canción aleatoria</button>
+    
+    <div id="cancion-aleatoria"></div>
+    <div id="canciones" class="card-container"></div>
+
+</body>
+</html>
