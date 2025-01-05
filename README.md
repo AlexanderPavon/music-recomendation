@@ -7,8 +7,10 @@ git clone https://github.com/AlexanderPavon/music-recomendation.git
 ~~~
 
 ## Dirigirse a la ruta
+~~~
 cd .\music-recomendation\server\
-  
+ ~~~
+ 
 ## Instalación 
 ~~~
 npm install express mongoose cors
