@@ -1,4 +1,3 @@
-
 let Cancion = require('../models/cancion');
 
 async function agregarCancion (req, res) {
@@ -28,9 +27,7 @@ async function obtenerCanciones(req, res) {
     }
 }
 
-
-
-async function obtenerCancionAleatoria(req, res) {
+async function obtenerCancionAleatoria (req, res) {
     try {
         const canciones = await Cancion.find();
         if (canciones.length === 0) {
@@ -42,8 +39,8 @@ async function obtenerCancionAleatoria(req, res) {
     } catch (error) {
         res.status(500).json({ error: 'Error al obtener canción aleatoria' });
     }
-}
 
+}
 
 async function votarCancion (req, res) {
     const { id } = req.params;
@@ -58,6 +55,20 @@ async function votarCancion (req, res) {
     }
 };
 
+async function eliminarCancion  (req, res)  {
+    try {
+        const id = req.params.id;
+        const result = await Cancion.findByIdAndDelete(id);
+        if (result) {
+            res.status(200).send({ message: 'Canción eliminada con éxito' });
+        } else {
+            res.status(404).send({ message: 'Canción no encontrada' });
+        }
+    } catch (error) {
+        console.error("Error al eliminar canción:", error);
+        res.status(500).send({ message: 'Error al eliminar canción' });
+    }
+}
 
 
 module.exports = {
@@ -65,5 +76,5 @@ module.exports = {
     obtenerCancionAleatoria,
     votarCancion,
     obtenerCanciones, 
+    eliminarCancion,
 };
-
